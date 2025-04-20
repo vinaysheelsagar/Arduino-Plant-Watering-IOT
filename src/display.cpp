@@ -10,6 +10,8 @@ int moistureLine = 0;
 
 String moistureHeader = "Moisture: ";
 
+void initMoistureRow();
+
 void initDisplay(uint8_t ADDR, uint8_t COLS, uint8_t ROWS) {
   moistureLineCols = COLS;
 
@@ -27,7 +29,7 @@ void initMoistureRow() {
 
 void displayMoisture(int8_t moisturePercent) {
   lcd->setCursor(moistureHeader.length(), moistureLine);
-  lcd->printf("%d%", moisturePercent);
+  lcd->printf("%d%%", moisturePercent);
   if (moisturePercent < 100) {
     lcd->print(" ");
   }
@@ -35,7 +37,7 @@ void displayMoisture(int8_t moisturePercent) {
 
 void setToEnd(char c) {
   lcd->setCursor(moistureLineCols - 2, moistureLine);
-  lcd->printf("%v", c);
+  lcd->printf("%c", c);
 }
 
 void displayWatering() {

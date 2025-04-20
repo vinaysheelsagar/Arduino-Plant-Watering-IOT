@@ -2,6 +2,6 @@
 #define SENSOR_H
 
 void initSoilSensor(uint8_t);
-int readSoilMoisture();
+int8_t readSoilMoisture();
 
 #endif
